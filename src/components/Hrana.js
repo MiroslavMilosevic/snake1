@@ -7,7 +7,7 @@ export default function Hrana({pozicija, setPozicija}) {
     useEffect(() => {
 
         // setInterval(() => {
-   
+   ////
            
         // }, 11320);
     }, [])
