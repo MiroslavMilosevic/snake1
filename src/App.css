@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+*{
+   /* // scroll:no;  */
+   overflow:hidden
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.zmija{
+
+  position: absolute;
+  min-width: 18px;
+  min-height: 18px;
+  border: 1px solid black;
+  background-color: blueviolet;
+}
+.glavaZmije{
+background-color: darkorange;
+border-radius: 7px;
+}
+.teloZmije{
+
+}
+.hrana{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(1, 6, 46);
+  border-radius: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.divKlasa{
 
-.App-header {
-  background-color: #282c34;
+  min-width: 100vw;
   min-height: 100vh;
+  background-color: aquamarine;
+}
+.menuButton{
+  flex: 1;
+  min-width: 50%;
+}
+.footerButton{
+  min-width:5%;
+}
+.menuWraper{
+  background-color: violet;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  min-height: 45px;
+  max-height: 45px;
+  border-bottom: 5px solid darkviolet;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+.footerWraper{
+  background-color: violet;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  min-height: 60px;
+  max-height: 60px;
+  border-top: 5px solid darkviolet;  
+}
+.divGornji{
+display: flex;
+justify-content: center;
+min-height: 30px;
+}
+.divDonji{
+  min-height: 30px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  display: flex;
 }
