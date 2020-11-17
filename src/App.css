@@ -35,9 +35,10 @@ border-radius: 7px;
 .menuButton{
   flex: 1;
   min-width: 50%;
+  min-height: 30px;
 }
 .footerButton{
-  min-width:5%;
+  min-width:12%;
 }
 .menuWraper{
   background-color: violet;
