@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { v1 as uuid } from 'uuid'
 import {promeniKordinate,pomeriHranu } from '../funkcije'
 
-export default function Zmija({ pravac,setPravac ,pozicija, setPozicija, zmijaNiz, setZmijaNiz }) {
-
+export default function Zmija({ pravac,setPravac ,pozicija, setPozicija, zmijaNiz, setZmijaNiz, brojac, setBrojac, nizIznadApp }) {
+    // const [brojac, setBrojac] = useState(1);
 
     const produziZmiju=(zmijaNiz, setZmijaNiz)=>{
         let tmp = [...zmijaNiz];
-        console.log('produzi zmijuuuuuuuuuuuuuuuuuuuuuuuuuuuuu', zmijaNiz.length);
         let duzina=tmp.length;
         let objekat={bottom: tmp[duzina-1].bottom, left: tmp[duzina-1].left, klasa2:'teloZmije',
          roditeljBottom:tmp[duzina-1].bottom, roditeljLeft:tmp[duzina-1].left}
@@ -15,23 +14,21 @@ export default function Zmija({ pravac,setPravac ,pozicija, setPozicija, zmijaNi
         setZmijaNiz(tmp);
     }
 
-    //  useEffect(()=>{
-    //     let tmp=[...pomocnaZmija];
-    //     setZmijaNiz(tmp)
-    //     console.log(pomocnaZmija);
-    //     console.log('gore je pomocna');
-    //     console.log(zmijaNiz);
-   
-    //  },[pomocnaZmija])
+
+       useEffect(()=>{
+    setInterval(() => {
+        setZmijaNiz(nizIznadApp)
+    }, 30);
+       },[])
 
     useEffect(() => {
-        produziZmiju(zmijaNiz, setZmijaNiz);
+      //  produziZmiju(zmijaNiz, setZmijaNiz);
          
         let a = setInterval(() => {
-            
+           
          promeniKordinate(zmijaNiz,setZmijaNiz, pravac);
         
-        }, 115)/////
+        }, 95)/////
         return () => {
             clearInterval(a);
         }
@@ -46,19 +43,18 @@ export default function Zmija({ pravac,setPravac ,pozicija, setPozicija, zmijaNi
            //  console.log('udarilo je u zmiju');
            pomeriHranu(setPozicija, window.innerHeight, window.innerWidth);
   
-        if (((zmijaNiz[0].left>=pozicija.left&&zmijaNiz[0].left<=pozicija.left+30)&&
-        (zmijaNiz[0].bottom>=pozicija.bottom&&zmijaNiz[0].bottom<=pozicija.bottom+30))||
-        ((zmijaNiz[0].left+20>=pozicija.left&&zmijaNiz[0].left+20<=pozicija.left+30)&&
-        (zmijaNiz[0].bottom+20>=pozicija.bottom&&zmijaNiz[0].bottom+20<=pozicija.bottom+30))) {
-            let tmpPravac=pravac;
-            setPravac('');
-            setTimeout(() => {
-                setPravac(tmpPravac)
-            }, 3);
-           // produziZmiju(zmijaNiz, setZmijaNiz);
+            let tmp=[...nizIznadApp]
+            let duzina=tmp.length;
+            let objekat={bottom: tmp[duzina-1].bottom, left: tmp[duzina-1].left, klasa2:'teloZmije',
+            roditeljBottom:tmp[duzina-1].bottom, roditeljLeft:tmp[duzina-1].left}
+            nizIznadApp.push(objekat);
+            console.log(nizIznadApp);
+             produziZmiju(zmijaNiz, setZmijaNiz);
+             setBrojac(brojac+1)
+
         } //if
 
-        }
+        
      //   console.log('useeffect promeni zmijaniza');
      }, [zmijaNiz])
 
